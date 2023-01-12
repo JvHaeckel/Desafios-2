@@ -1,5 +1,5 @@
 
-const formEditarEvento = document.getElementById("editar-evento");
+const formExcluirEvento = document.getElementById("editar-evento");
 const inputNome = document.getElementById("nome");
 const inputBanner = document.getElementById("banner");
 const inputAtracoes = document.getElementById("atracoes");
@@ -23,7 +23,7 @@ const carregando = (loading = true) => {
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
-formEditarEvento.addEventListener("submit", (form) => {
+formExcluirEvento.addEventListener("submit", (form) => {
   form.preventDefault();
 
   carregando();
