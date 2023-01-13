@@ -7,8 +7,9 @@ const getEvents = async () => {
   );
 
   events
-    .sort((eventoA, eventoB) => eventoA.scheduled - eventoB.scheduled)
-    .slice(0, 3)
+  // Copiando do index.js apenas retirando o sort()
+    // .sort((eventoA, eventoB) => eventoA.scheduled - eventoB.scheduled)
+    // .slice(0, 3)
     .forEach((event) => {
       const article = document.createElement("article");
       article.innerHTML = `
@@ -23,7 +24,7 @@ const getEvents = async () => {
         <a href="#" class="btn btn-primary">reservar ingresso</a>
       </article>`;
 
-      divEventos.appendChild(article);
+      divtodosEventos.appendChild(article);
     });
 };
 
