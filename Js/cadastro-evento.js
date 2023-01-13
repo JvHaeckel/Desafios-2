@@ -1,6 +1,6 @@
 const formCriarEvento = document.getElementById("criar-evento");
 const inputNome = document.getElementById("nome");
-// const inputBanner = document.getElementById("banner");
+const inputBanner = document.getElementById("banner");
 const inputAtracoes = document.getElementById("atracoes");
 const inputDescricao = document.getElementById("descricao");
 const inputData = document.getElementById("data");
@@ -11,7 +11,7 @@ const btnEnviar = document.getElementById("enviar");
 const carregando = (loading = true) => {
     inputNome.disabled = loading;
     inputNome.disabled = loading;
-    inputBanner.disabled = loading;
+    // inputBanner.disabled = loading;
     inputAtracoes.disabled = loading;
     inputDescricao.disabled = loading;
     inputData.disabled = loading;
@@ -23,14 +23,14 @@ const carregando = (loading = true) => {
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
-formCriarEventoEvento.addEventListener("submit", (form) => {
+formCriarEvento.addEventListener("submit", (form) => {
   form.preventDefault();
 
   carregando();
 
   const body = {
     name: inputNome.value,
-    poster: inputBanner.value,
+    // poster: inputBanner.value,
     attractions: inputAtracoes.value.split(","),
     description: inputDescricao.value,
     scheduled: inputData.value,
@@ -38,15 +38,17 @@ formCriarEventoEvento.addEventListener("submit", (form) => {
   };
 
 fetch(`${BASE_URL}/events/${id}`, {     /* Abriu um fetch colocou a CONST só não entendi esse id*/
-    method:"POST",                       /* post - criar */
-    headers: { "Content-type": "aplication/json"} , // Não entendi essa passagem
+    method:'POST',                       /* post - criar */
+    headers: { "Content-type": "aplication/json"} , 
     body: JSON.stringify(body),
-})
-.then((reponse) => {
-    if(Response.ok){
+
+}).then((response) => {
+    if(response.ok){
         alert("Sucesso no evento!!")  
+    }else{
+      alert("Falha no evento ")
     }
-    return alert("Falha no evento ") /* Optei por não colocar o else*/
+   
 })
 
 carregando(false);   /* Stopar o carregamento???*/

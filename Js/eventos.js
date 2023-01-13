@@ -1,5 +1,5 @@
 
-const divEventos = document.getElementById("eventos");
+const divtodosEventos = document.getElementById("todos-eventos");
 
 const getEvents = async () => {
   const events = await fetch(`${BASE_URL}/events`).then((result) =>
